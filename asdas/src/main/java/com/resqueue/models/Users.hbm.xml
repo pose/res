@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2014 8:07:37 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.resqueue.models.Users" table="users" catalog="heroku_54640e8309ac0d5">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="queue" class="com.resqueue.models.Queue" fetch="select">
+            <column name="next_queue_id" />
+        </many-to-one>
+        <property name="ssn" type="string">
+            <column name="ssn" length="9" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="45" />
+        </property>
+        <property name="gpsLat" type="string">
+            <column name="gps_lat" length="45" />
+        </property>
+        <property name="gpsLong" type="string">
+            <column name="gps_long" length="45" />
+        </property>
+        <property name="rating" type="int">
+            <column name="rating" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="45" not-null="true" />
+        </property>
+        <property name="emailVerified" type="boolean">
+            <column name="email_verified" not-null="true" />
+        </property>
+        <property name="nickname" type="string">
+            <column name="nickname" length="45" />
+        </property>
+        <property name="tenant" type="string">
+            <column name="tenant" length="45">
+                <comment>from oauth0</comment>
+            </column>
+        </property>
+        <property name="connection" type="string">
+            <column name="connection" length="45">
+                <comment>from oauth0</comment>
+            </column>
+        </property>
+        <property name="debug" type="string">
+            <column name="debug" length="45">
+                <comment>from oauth0</comment>
+            </column>
+        </property>
+        <set name="userBranchServicePrivileges" table="user_branch_service_privilege" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.resqueue.models.UserBranchServicePrivilege" />
+        </set>
+        <set name="queues" table="queue" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="com.resqueue.models.Queue" />
+        </set>
+    </class>
+</hibernate-mapping>

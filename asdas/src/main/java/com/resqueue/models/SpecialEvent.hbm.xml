@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2014 8:07:37 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.resqueue.models.SpecialEvent" table="special_event" catalog="heroku_54640e8309ac0d5">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="branchService" class="com.resqueue.models.BranchService" fetch="select">
+            <column name="branch_service_id" />
+        </many-to-one>
+        <property name="toClose" type="java.lang.Boolean">
+            <column name="to_close" />
+        </property>
+        <property name="toOpen" type="java.lang.Boolean">
+            <column name="to_open" />
+        </property>
+        <property name="date" type="string">
+            <column name="date" length="45" />
+        </property>
+        <property name="start" type="time">
+            <column name="start" length="0" />
+        </property>
+        <property name="end" type="time">
+            <column name="end" length="0" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="100" />
+        </property>
+        <property name="message" type="string">
+            <column name="message" length="100" />
+        </property>
+    </class>
+</hibernate-mapping>

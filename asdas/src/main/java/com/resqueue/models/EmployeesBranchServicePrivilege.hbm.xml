@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 9, 2014 8:07:37 PM by Hibernate Tools 4.0.0 -->
+<hibernate-mapping>
+    <class name="com.resqueue.models.EmployeesBranchServicePrivilege" table="employees_branch_service_privilege" catalog="heroku_54640e8309ac0d5">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="employees" class="com.resqueue.models.Employees" fetch="select">
+            <column name="employee_id" />
+        </many-to-one>
+        <many-to-one name="privilege" class="com.resqueue.models.Privilege" fetch="select">
+            <column name="privilege_id" />
+        </many-to-one>
+        <many-to-one name="branchService" class="com.resqueue.models.BranchService" fetch="select">
+            <column name="branch_service_id" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
