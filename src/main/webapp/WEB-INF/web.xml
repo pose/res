@@ -29,7 +29,7 @@
   
   <filter>
         <filter-name>JWTFilter</filter-name>
-        <filter-class>com.auth0.example.JWTFilter</filter-class>
+        <filter-class>com.resqueue.resources.auth.JWTFilter</filter-class>
         <!-- JWT Configuration -->
         <!-- For your application this can be found on your Auth0 Application Settings -->
         <init-param>
